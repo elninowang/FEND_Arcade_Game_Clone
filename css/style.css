@@ -1,3 +1,91 @@
 body {
     text-align: center;
 }
+
+#begin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#begin.hide {
+    display: none;
+}
+
+.deck {
+    width: 660px;
+    min-height: 200px;
+    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 3em;
+}
+
+.deck .card {
+    height: 125px;
+    width: 125px;
+    background: #2e3d49;
+    font-size: 0;
+    color: #ffffff;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+#game-success {
+    width: 100%;
+    min-width: 200px;
+    height: 100%;
+    min-height: 150px;
+    transition: 0.5s;
+    display: none;
+}
+
+#game-success.fullScreen {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    top: 0;
+    bottom: 0;
+    z-index: 2000;
+    opacity: 1;
+    background-color: #fff;
+    padding: 40px;
+    margin: auto;
+}
+
+#game-success .body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#play-again {
+    color: #fff;
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    overflow: hidden;
+    text-align: center;
+    vertical-align: middle; 
+    background-color: #01B500;
+    border-radius: 4px;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+    cursor: pointer;
+}
+
+#play-again:hover {
+    box-shadow: 0 8px 6px -6px rgba(46, 61, 73, 0.5);
+}

@@ -10,7 +10,7 @@
  * 公开访问，以此使编写app.js的时候更加容易
  */
 
-var Engine = (function(global) {
+var Engine = function(global) {
     /* 实现定义我们会在这个作用于用到的变量
      * 创建 canvas 元素，拿到对应的 2D 上下文
      * 设置 canvas 元素的高/宽 然后添加到dom中
@@ -76,6 +76,9 @@ var Engine = (function(global) {
         allEnemies.forEach(function(enemy) {
             enemy.update(dt);
         });
+        allGems.forEach(function(gem) {
+            gem.update(dt);
+        });
         player.update();
     }
 
@@ -117,10 +120,8 @@ var Engine = (function(global) {
      */
     function renderEntities() {
         /* 遍历在 allEnemies 数组中存放的作于对象然后调用你事先定义的 render 函数 */
-        allEnemies.forEach(function(enemy) {
-            enemy.render();
-        });
-
+        allEnemies.forEach(enemy => enemy.render());
+        allGems.forEach(gem => gem.render());
         player.render();
     }
 
@@ -140,7 +141,13 @@ var Engine = (function(global) {
         'images/water-block.png',
         'images/grass-block.png',
         'images/enemy-bug.png',
-        'images/char-boy.png'
+        'images/char-boy.png',
+        'images/char-cat-girl.png',
+        'images/char-horn-girl.png',
+        'images/char-princess-girl.png',
+        "images/Gem Blue.png",
+        "images/Gem Green.png",
+        "images/Gem Orange.png"
     ]);
     Resources.onReady(init);
 
@@ -148,4 +155,12 @@ var Engine = (function(global) {
      * 对象。从而开发者就可以在他们的app.js文件里面更容易的使用它。
      */
     global.ctx = ctx;
-})(this);
+};
+
+$('.deck').on("click", ".card", (obj) => {
+    $('#begin').addClass("hide");
+    imgobj = $(obj.currentTarget).find('img').first();
+    console.log(imgobj.attr('src'));
+    player.sprite = imgobj.attr('src');
+    Engine(this);
+});

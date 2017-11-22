@@ -4,8 +4,40 @@
     <meta charset="UTF-8">
     <title>Effective JavaScript: Frogger</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animate.css">
 </head>
 <body>
+    <!-- 选择游戏角色 -->
+    <div id="begin">
+        <header>
+            <h1>欢迎来到青蛙过河游戏，请选择您的角色</h1>
+        </header>
+        <ul class="deck">
+            <li class="card">
+                <img src="images/char-boy.png" />
+            </li>
+            <li class="card">
+                <img src="images/char-cat-girl.png" />
+            </li>
+            <li class="card">
+                <img src="images/char-horn-girl.png" />
+            </li>
+            <li class="card">
+                <img src="images/char-princess-girl.png" />
+            </li>
+        </ul>
+    </div>
+
+    <!-- 游戏胜利 -->
+    <div id="game-success">
+        <div class="body">
+            <img id="player-img" />
+            <h1 id="player-score">恭喜你，你胜利了，得分: #{score}</h1>
+            <span id="play-again" onclick="location.reload(true);">Play Again</span>
+        </div>
+    </div> <!-- end of Success modal windows -->
+
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="js/resources.js"></script>
     <script src="js/app.js"></script>
     <script src="js/engine.js"></script>
